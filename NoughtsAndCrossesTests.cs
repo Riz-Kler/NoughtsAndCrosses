@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using NUnit.Framework;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
 
 namespace NoughtsAndCrosses
 {
@@ -44,10 +45,27 @@ namespace NoughtsAndCrosses
             Assert.Throws<InvalidOperationException>(() =>
             {
                 var Game = new Game();
-                
+
                 Game.YourMove(1);
                 Game.YourMove(1);
             });
         }
+
+            [Test]
+            
+            public void  YourMoves_SetCorrectState()
+            {
+                Game game = new Game();
+            game.YourMove(1);
+            game.YourMove(2);
+            game.YourMove(3);
+            game.YourMove(4);
+
+            Assert.AreEqual(State.Cross, game.GetState(1));
+            Assert.AreEqual(State.Nought, game.GetState(2));
+            Assert.AreEqual(State.Cross, game.GetState(3));
+            Assert.AreEqual(State.Nought, game.GetState(4));
+        }
+        
     }
 }

@@ -32,7 +32,7 @@ namespace NoughtsAndCrosses
             AddCounter++;
         }
 
-        private State GetState(int index)
+        public State GetState(int index)
         {
            return _board[index - 1] ;
         }
