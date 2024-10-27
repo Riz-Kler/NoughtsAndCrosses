@@ -61,6 +61,8 @@ namespace NoughtsAndCrosses
 
                 }
             }
+            if (AddCounter < 9)
+                return Winner.Incomplete;
 
             return Winner.Draw;
         }
