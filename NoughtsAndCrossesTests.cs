@@ -89,6 +89,18 @@ namespace NoughtsAndCrosses
             Assert.AreEqual(Winner.Crosses, game.GetWinner());
         }
 
+        [Test]
+        public void TheWinner_IncompleteGame_ReturnsIncompleteGame()
+        {
+            Game game = new Game();
+
+            YourMoves(game, 1, 2, 4);
+
+            Assert.AreEqual(Winner.Incomplete, game.GetWinner);
+
+
+        }
+
         private void YourMoves(Game game, params int[] indexes)
         {
             foreach (var index in indexes)
@@ -101,6 +113,6 @@ namespace NoughtsAndCrosses
         Noughts,
         Crosses,
         Draw,
-//        Incomplete
+        Incomplete
 }
 }
