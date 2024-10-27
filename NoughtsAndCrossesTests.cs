@@ -1,4 +1,10 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using NUnit.Framework;
 using System.ComponentModel.DataAnnotations;
 
 namespace NoughtsAndCrosses
@@ -42,19 +48,6 @@ namespace NoughtsAndCrosses
                 Game.YourMove(1);
                 Game.YourMove(1);
             });
-        }
-    }
-
-    public class Game
-    {
-        public int AddCounter
-            { get; private set; }
-
-        public void YourMove(int index)
-        {
-            if (index < 1 || index > 9)
-                throw new ArgumentOutOfRangeException();
-            AddCounter++;
         }
     }
 }
