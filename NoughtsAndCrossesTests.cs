@@ -40,6 +40,8 @@ namespace NoughtsAndCrosses
 
         public void YourMove(int index)
         {
+            if (index < 1 || index > 9)
+                throw new ArgumentOutOfRangeException();
             AddCounter++;
         }
     }
