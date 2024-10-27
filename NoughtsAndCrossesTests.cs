@@ -14,10 +14,13 @@ namespace NoughtsAndCrosses
     public class NoughtsAndCrossesTests
     {
         [Test]
-        public void StartGame_NoMoves()
+        public void StartGame_CheckGameState()
         {
             Game game = new Game();
+            
             Assert.AreEqual(0, game.AddCounter);
+
+            Assert.AreEqual(State.Unset, game.GetState(1));
         }
 
         [Test]
