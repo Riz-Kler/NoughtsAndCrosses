@@ -65,6 +65,7 @@ namespace NoughtsAndCrosses
               Assert.AreEqual(State.Nought, game.GetState(4));
         }
 
+        
         [Test]
         public void TheWinner_NoughtsWinsVertically_ReturnsNoughts()
         {
@@ -75,16 +76,19 @@ namespace NoughtsAndCrosses
             YourMoves(game, 1,2,3,5,7,8);
 
             Assert.AreEqual(Winner.Noughts, game.GetWinner());
-
-            // 4,5,6
-
-            //7,8,9
-
-
-
-          //  Assert.AreEqual(Winner.Noughts, Game.GetWinner());
-
         }
+
+        [Test]
+        public void TheWinner_CrossesWinDiagonals_ReturnsCrosses()
+        {
+            Game game = new Game();
+
+            // 1, 5, 9 - crosses win
+            YourMoves(game, 1, 4, 5, 2, 9);
+
+            Assert.AreEqual(Winner.Crosses, game.GetWinner());
+        }
+
         private void YourMoves(Game game, params int[] indexes)
         {
             foreach (var index in indexes)
