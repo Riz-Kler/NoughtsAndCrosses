@@ -31,6 +31,18 @@ namespace NoughtsAndCrosses
                 Game.YourMove(0);
             });
         }
+
+        [Test]
+        public void SameSquareMove_ThrowsException()
+        {
+            Assert.Throws<InvalidOperationException>(() =>
+            {
+                var Game = new Game();
+                
+                Game.YourMove(1);
+                Game.YourMove(1);
+            });
+        }
     }
 
     public class Game
