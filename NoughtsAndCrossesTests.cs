@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using NUnit.Framework;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Cryptography.X509Certificates;
 
 namespace NoughtsAndCrosses
 {
@@ -68,6 +65,26 @@ namespace NoughtsAndCrosses
               Assert.AreEqual(State.Nought, game.GetState(4));
         }
 
+        [Test]
+        public void TheWinner_NoughtsWinsVertically_ReturnsNoughts()
+        {
+
+            Game game = new Game();
+
+            // 2,5,8 - noughts win
+            YourMoves(game, 1,2,3,5,7,8);
+
+            Assert.AreEqual(Winner.Noughts, game.GetWinner());
+
+            // 4,5,6
+
+            //7,8,9
+
+
+
+          //  Assert.AreEqual(Winner.Noughts, Game.GetWinner());
+
+        }
         private void YourMoves(Game game, params int[] indexes)
         {
             foreach (var index in indexes)
@@ -75,4 +92,11 @@ namespace NoughtsAndCrosses
         }
         
     }
+    public enum Winner
+    {
+        Noughts,
+        Crosses,
+        Draw,
+//        Incomplete
+}
 }
