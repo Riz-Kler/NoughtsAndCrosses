@@ -56,15 +56,19 @@ namespace NoughtsAndCrosses
             public void  YourMoves_SetCorrectState()
             {
                 Game game = new Game();
-            game.YourMove(1);
-            game.YourMove(2);
-            game.YourMove(3);
-            game.YourMove(4);
 
-            Assert.AreEqual(State.Cross, game.GetState(1));
-            Assert.AreEqual(State.Nought, game.GetState(2));
-            Assert.AreEqual(State.Cross, game.GetState(3));
-            Assert.AreEqual(State.Nought, game.GetState(4));
+               YourMoves(game, 1, 2, 3, 4);
+
+              Assert.AreEqual(State.Cross, game.GetState(1));
+              Assert.AreEqual(State.Nought, game.GetState(2));
+              Assert.AreEqual(State.Cross, game.GetState(3));
+              Assert.AreEqual(State.Nought, game.GetState(4));
+        }
+
+        private void YourMoves(Game game, params int[] indexes)
+        {
+            foreach (var index in indexes)
+                game.YourMove(index);
         }
         
     }
