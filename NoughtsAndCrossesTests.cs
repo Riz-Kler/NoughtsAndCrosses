@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System.ComponentModel.DataAnnotations;
 
 namespace NoughtsAndCrosses
 {
@@ -11,11 +12,35 @@ namespace NoughtsAndCrosses
             Game game = new Game();
             Assert.AreEqual(0, game.AddCounter);
         }
+
+        [Test]
+        public void YourMove_CounterShifts()
+        {
+            Game game = new Game();
+            game.YourMove(1);
+
+            Assert.AreEqual(1, game.AddCounter);
+        }
+
+        [Test]
+        public void AnInvalidMove_ThrowsException()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() =>
+                {
+                var Game = new Game();
+                Game.YourMove(0);
+            });
+        }
     }
 
     public class Game
     {
         public int AddCounter
             { get; private set; }
+
+        public void YourMove(int index)
+        {
+            AddCounter++;
+        }
     }
 }
