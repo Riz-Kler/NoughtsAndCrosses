@@ -97,7 +97,7 @@ namespace NoughtsAndCrosses
 
             YourMoves(game, 1, 2, 4);
 
-            Assert.AreEqual(Winner.Incomplete, game.GetWinner);
+            Assert.AreEqual(Winner.Incomplete, game.GetWinner());
 
 
         }
